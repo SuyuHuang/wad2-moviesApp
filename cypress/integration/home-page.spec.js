@@ -54,6 +54,17 @@ describe("Home Page ", () => {
         })
       })
     })
+    it("should display nothing when their are no mathches", () => {
+      const searchString = "xyz";
+      const matchingMovies = filterByTitle(movies, searchString);
+      cy.get("input").clear().type(searchString);
+      cy.get(".children").should("have.length", 0);
+      
+     
+          
+    })
+    
+  
     describe("By movie genre" ,() => {
       // More later
     })
