@@ -24,6 +24,7 @@ describe("Movie Details Page", () => {
       })
       .then((movieDetails) => {
         movie = movieDetails;
+        console.log(movie)
         return movieDetails.id;
       })
   });
@@ -52,6 +53,11 @@ describe("Movie Details Page", () => {
           .parent()
           .should("have.attr", "href")
           .should("include", movie.homepage);
+      });
+      it("should display the poster correctly", () => {
+        cy.get(".movie")
+          .should("have.attr", "src")
+          .should("include", movie.poster_path);
       });
 
 });
