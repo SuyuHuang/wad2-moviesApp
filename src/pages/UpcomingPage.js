@@ -13,8 +13,8 @@ const MovieListPage = () => {
     <PageTemplate
       title="No. Movies"
       movies={movies}  /* Changed */
-      action={(movie) => {
-        return <AddToWatchListButton movie={movie} />;
+      action={(upcoming) => {
+        return <AddToWatchListButton movie={upcoming} />;
       }}
     />
   );
