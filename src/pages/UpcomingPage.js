@@ -5,7 +5,7 @@ import AddToFavoritesButton from '../components/buttons/addToFavorites'
 import AddToWatchListButton from '../components/buttons/addToWatchList';
 const MovieListPage = () => {
   const context = useContext(MoviesContext);
-  const movies = context.movies.filter((m) => {  // New
+  const movies = context.upcoming.filter((m) => {  // New
     return !("favorite" in m);
   });
 
@@ -19,5 +19,4 @@ const MovieListPage = () => {
     />
   );
 };
-
 export default MovieListPage;
