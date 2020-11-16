@@ -79,7 +79,7 @@ describe("Home Page ", () => {
         });      
       });
       it("should display movies with the speficied genre and text", () => {
-        const searchString = 'co'
+        const searchString = 'once'
         const selectedGenreId = 35;
         const selectedGenreText = "Comedy";
         const matchingMovies = filterByGenre(filterByTitle(movies, searchString),selectedGenreId);
