@@ -1,3 +1,4 @@
+/* eslint-disable */ 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getMovieReviews } from "../../api/tmdb-api";
@@ -10,7 +11,7 @@ export default ({ movie }) => {
     getMovieReviews(movie.id).then(reviews => {
       setReviews(reviews);
     });
-  }, );
+  }, []);
   return (
     <table className="table table-striped table-bordered table-hover">
       <thead>
