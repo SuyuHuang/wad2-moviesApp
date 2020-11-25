@@ -10,7 +10,7 @@ const MovieListPage = () => {
 
   return (
     <PageTemplate
-      title="No. Movies"
+      title="No. Movies1"
       movies={movies}  /* Changed */
       action={(movie) => {
         return <AddToFavoritesButton movie={movie} />;

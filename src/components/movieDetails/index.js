@@ -1,6 +1,7 @@
 import React from "react";
-import GenreListPage from "../../pages/genres";
+
 import "./movieDetails.css";
+import { Link } from "react-router-dom";
 
 export default ({ movie }) => {
   return (
@@ -28,13 +29,21 @@ export default ({ movie }) => {
         </li>
         {movie.genres.map(g => (
           <li key={g.name} className="list-group-item">
-            <GenreListPage
-            value={g.name}>
-    
-            </GenreListPage>
-            <a href="/">
+            <div>
+            
+            </div>
+            <Link to={
+              {
+                pathname:`/genres/${g.id}`,
+                state:{id:g.id,name:g.name}
+              }
+            }
+                
+              >
             {g.name}
-          </a>
+
+              </Link>
+          
           </li>
         ))}
         
