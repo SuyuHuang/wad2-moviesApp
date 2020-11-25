@@ -1,4 +1,5 @@
 import React from "react";
+import GenreListPage from "../../pages/genres";
 import "./movieDetails.css";
 
 export default ({ movie }) => {
@@ -27,9 +28,16 @@ export default ({ movie }) => {
         </li>
         {movie.genres.map(g => (
           <li key={g.name} className="list-group-item">
+            <GenreListPage
+            value={g.name}>
+    
+            </GenreListPage>
+            <a href="/">
             {g.name}
+          </a>
           </li>
         ))}
+        
       </ul>
       <ul className="list-group list-group-horizontal">
         <li key="slh" className="list-group-item list-group-item-dark">
