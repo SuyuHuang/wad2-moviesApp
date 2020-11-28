@@ -4,7 +4,7 @@ import TemplateActorPage from "../components/templayeActorListPage";
 const ActorListPage = () => {
   const context = useContext(ActorContext);
   const actors = context.actors.filter((m) => {  // New
-    console.log(m)
+    
     return m;
   },
 );

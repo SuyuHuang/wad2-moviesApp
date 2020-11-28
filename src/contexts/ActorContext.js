@@ -1,5 +1,5 @@
 import React, { useEffect, createContext, useReducer } from "react";
-import { getActor, getActors } from "../api/tmdb-api";
+import { getActors } from "../api/tmdb-api";
 
 export const ActorContext = createContext(null);
 

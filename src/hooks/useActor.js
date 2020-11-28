@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
 import {getActor} from '../api/tmdb-api'
 
 const useActor = person_id => {

@@ -7,9 +7,9 @@ import useActor from "../hooks/useActor";
 const ActorPage = props => {
     
     const {id} = props.match.params;
-    console.log( id)
+  
     const [actor] = useActor(id)  // NEW
-    console.log(actor)
+
     
   
   return (
