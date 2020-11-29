@@ -9,6 +9,7 @@ const ActorPage = props => {
     const {id} = props.match.params;
   
     const [actor] = useActor(id)  // NEW
+    
 
     
   

@@ -30,7 +30,20 @@ const MovieCard = ({movie, action}) => {
             <FontAwesomeIcon icon={["fas", "star"]} />
             <span> {movie.vote_average}</span>
           </p>
+          <p>
+          <FontAwesomeIcon icon={["fas", "star"]} />
+            <span> {movie.popularity}</span>
+          </p>
+          <p>
+          <FontAwesomeIcon icon={["fas", "star"]} />
+            <span> {movie.vote_count}</span>
+          </p>
+          
+
+          
         </div>
+
+        
         <div className="card-footer">
            {action(movie)}
         </div>

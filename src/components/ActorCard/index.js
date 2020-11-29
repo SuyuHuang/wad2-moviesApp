@@ -5,7 +5,7 @@ import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const ActorCard = ({actors}) => {
-  console.log(actors.known_for)
+
 
   return (
     <div className="col-sm-3">
