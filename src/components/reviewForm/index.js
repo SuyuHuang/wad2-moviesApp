@@ -3,11 +3,12 @@ import "./reviewForm.css";
 import useForm from "react-hook-form";
 import {MoviesContext} from '../../contexts/moviesContext'
 import { withRouter } from "react-router-dom";
+import { useUser } from 'reactfire' ;
 
 const ReviewForm = ({ movie, history }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const context = useContext(MoviesContext);
-
+const user=useUser();
   const onSubmit = data => {
     context.addReview(movie, data)
     history.push("/movies/favorites");
@@ -20,7 +21,7 @@ const ReviewForm = ({ movie, history }) => {
         <input
           type="text"
           className="form-control"
-          placeholder="Author"
+          placeholder={user.displayName}
           defaultValue={movie.review ? movie.review.author : ""}
           name="author"
           ref={register({ required: "Author name required" })}

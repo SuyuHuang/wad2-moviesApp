@@ -3,8 +3,16 @@ import { Link } from "react-router-dom";
 import "../../globals/fontawesome";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./siteHeader.css";
+import { useUser } from 'reactfire' ;
 
 const SiteHeader = () => {
+  let name;
+  const user = useUser();
+  if(user===null){
+    name="Login"
+  }
+  else
+  name=user.displayName
   return (
     <nav className="navbar  navbar-light fixed-top  bg-dark ">
       <nav className="navbar-brand text-white">
@@ -45,6 +53,11 @@ const SiteHeader = () => {
           <li className="nav-item">
             <Link className="nav-link text-white" to="/actor">
               Actors
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link className="nav-link text-white" to="/login">
+             {name}
             </Link>
           </li>
         </ul>

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ Suspense }from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom"    // CHANGED
 import FavoriteMoviesPage from './pages/favoritesMoviesPage'
@@ -15,8 +15,21 @@ import GenresContextProvider from "./contexts/genresContext";
 import ActorContextProvider from "./contexts/ActorContext";
 import AddMovieReviewPage from './pages/addMovieReviewPage'
 import GenrePage from "./pages/genres";
+import { FirebaseAppProvider } from 'reactfire' ;
+import firebaseConfig from './firebaseSDK' ;
+import Logout from './components/Signout'
+import Login from './components/login'
+import Signup from './pages/Signup'
+import firebase from 'firebase/app'
+import { useUser } from 'reactfire' ;
+import { useFirebaseApp } from 'reactfire' ;
+import LoginPage from './pages/Login'
+
 
 const App = () => {
+
+  const user = useUser();
+
   return (
     <BrowserRouter>
     <div className="jumbotron">
@@ -34,7 +47,10 @@ const App = () => {
           <Route path="/genres/:name" component={GenrePage}/>
           <Route path="/actor/" component={ACtorPage}/>
           <Route path="/actors/:id" component={ActorDetailPage}/>
+          <Route path="/login" component={LoginPage}/>
+          <Route path="/signup" component={Signup}/>
           <Route path="/" component={HomePage} />
+   
           
           
           <Redirect from="*" to="/" />
@@ -43,10 +59,18 @@ const App = () => {
         </GenresContextProvider>
         </MoviesContextProvider>     {/* NEW */}
       </div>
+      
+   
     </div>
   </BrowserRouter>
+  
 
   );
+  
 };
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(  < FirebaseAppProvider firebaseConfig = {firebaseConfig} >
+  <Suspense fallback={<h3>Loading...</h3>}>
+   <React.StrictMode><App />,</React.StrictMode>
+    </Suspense>
+  </FirebaseAppProvider> , document.getElementById("root"));

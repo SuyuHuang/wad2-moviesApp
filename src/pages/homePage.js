@@ -10,6 +10,7 @@ const MovieListPage = () => {
   });
 
   return (
+    
     <PageTemplate
       title="No. Movies1"
       movies={movies}  /* Changed */
@@ -19,5 +20,6 @@ const MovieListPage = () => {
     />
   );
 };
+
 
 export default MovieListPage;
