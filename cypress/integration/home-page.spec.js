@@ -70,7 +70,7 @@ describe("Home Page ", () => {
         const selectedGenreId = 35;
         const selectedGenreText = "Comedy";
         const matchingMovies = filterByGenre(movies, selectedGenreId);
-        cy.get("select").select(selectedGenreText); 
+        cy.get("select").eq(0).select(selectedGenreText); 
         cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
@@ -79,12 +79,12 @@ describe("Home Page ", () => {
         });      
       });
       it("should display movies with the speficied genre and text", () => {
-        const searchString = 'once'
+        const searchString = 'f'
         const selectedGenreId = 35;
         const selectedGenreText = "Comedy";
         const matchingMovies = filterByGenre(filterByTitle(movies, searchString),selectedGenreId);
         cy.get("input").clear().type(searchString) ;
-        cy.get("select").select(selectedGenreText); 
+        cy.get("select").eq(0).select(selectedGenreText); 
         cy.get(".card").should("have.length", matchingMovies.length);
         cy.get(".card").each(($card, index) => {
           cy.wrap($card)
