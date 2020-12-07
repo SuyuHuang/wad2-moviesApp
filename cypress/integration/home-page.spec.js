@@ -1,6 +1,22 @@
 let movies;    // List of movies from TMDB
 
 // Utility functions
+
+const compare=(property,desc)=>{
+  return function (a, b) {
+      var value1 = a[property];
+      var value2 = b[property];
+      if(desc===true){         
+          return value1 - value2;
+      }else{
+          return value2 - value1;
+      }
+  }
+}
+
+const filterBySortin = (movieList, sortFilter) =>
+  movieList.sort(compare(sortFilter,false));
+
 const filterByTitle = (movieList, string) =>
   movieList.filter((m) => m.title.toLowerCase().search(string) !== -1);
 
@@ -91,8 +107,32 @@ describe("Home Page ", () => {
           .find(".card-title")
           .should("have.text", matchingMovies[index].title);
         });
-      })
+      }
+      
+      )
+   
   });
+  describe("By the sortby option", () => {
+    it("should display movies with the speficied sortby value", () => {
+      const sortFilter = 'popularity'
+      const matchingMovies = filterBySortin(movies,sortFilter);
+      // cy.get("input").clear().type(searchString) ;
+      cy.get("select").eq(1).select(sortFilter); 
+      cy.get(".card").should("have.length", matchingMovies.length);
+      cy.get(".card").each(($card, index) => {
+        cy.wrap($card)
+        .find(".card-title")
+        .should("have.text", matchingMovies[index].title);
+      });
+    })
+
+  })
+  
+
+  it("displays page header", () => {
+    cy.get("h2").contains("No. Movies");
+    cy.get(".badge").contains(20);
+  })
 
 });
 })
