@@ -1,8 +1,16 @@
 let movieId = null
 let movie;
 let reviews;
+let movies
+
+const filterByGenre = (movieList, genreId) =>
+  movieList.filter((m) => m.genre_ids.includes(genreId));
 describe("Movie Details Page", () => {
   before(() => {
+
+
+
+    
     cy.request(
       `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
         "TMDB_KEY"
@@ -27,6 +35,15 @@ describe("Movie Details Page", () => {
         console.log(movie)
         return movieDetails.id;
       })
+      cy.request(
+        `https://api.themoviedb.org/3/movie/upcoming?api_key=${Cypress.env(
+          "TMDB_KEY"
+        )}&language=en-US&page=1`
+      )
+        .its("body")    // Take the body of HTTP response from TMDB
+        .then((response) => {
+          movies = response.results
+        })
   });
   beforeEach(() => {
     cy.visit(`/`);
@@ -60,5 +77,23 @@ describe("Movie Details Page", () => {
           .should("have.attr", "src")
           .should("include", movie.poster_path);
       });
+      
+  it("should display the movie according to the genres clicked", () => {
+    const selectedGenreId = 28;
+     
+        const matchingMovies = filterByGenre(movies, selectedGenreId)
+    cy.get("h4").contains("Overview");
+    cy.get("h4").next().contains(movie.overview);
+    cy.get("ul")
+      .eq(2)
+      .within(() => {
+        cy.get("li").eq(0).contains("Genres");
+        cy.get("li").eq(1).click();
+        
+   
+      });
+      cy.get(".card").should("have.length", matchingMovies.length);
+    })
+      
 
 });

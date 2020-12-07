@@ -39,7 +39,7 @@ export default ({ movie }) => {
               }
             }
                 
-              >
+             className="GenreKind" >
             {g.name}
 
               </Link>

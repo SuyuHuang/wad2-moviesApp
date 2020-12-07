@@ -14,8 +14,8 @@ const compare=(property,desc)=>{
   }
 }
 
-const filterBySortin = (movieList, sortFilter) =>
-  movieList.sort(compare(sortFilter,false));
+const filterBySortin = (movieList, sortFilter,sequence) =>
+  movieList.sort(compare(sortFilter,sequence));
 
 const filterByTitle = (movieList, string) =>
   movieList.filter((m) => m.title.toLowerCase().search(string) !== -1);
@@ -115,7 +115,7 @@ describe("Home Page ", () => {
   describe("By the sortby option", () => {
     it("should display movies with the speficied sortby value", () => {
       const sortFilter = 'popularity'
-      const matchingMovies = filterBySortin(movies,sortFilter);
+      const matchingMovies = filterBySortin(movies,sortFilter,false);
       // cy.get("input").clear().type(searchString) ;
       cy.get("select").eq(1).select(sortFilter); 
       cy.get(".card").should("have.length", matchingMovies.length);
@@ -126,14 +126,27 @@ describe("Home Page ", () => {
       });
     })
 
-  })
+ 
   
 
-  it("displays page header", () => {
-    cy.get("h2").contains("No. Movies");
-    cy.get(".badge").contains(20);
+  it("should display moives according to DESC sequence", () => {
+    const sortFilter = 'popularity'
+    const sequence=true;
+    const matchingMovies = filterBySortin(movies,sortFilter,sequence);
+   
+    const sortby='DESC'
+    // cy.get("input").clear().type(searchString) ;
+    cy.get("select").eq(1).select(sortFilter); 
+    cy.get('select').eq(2).select(sortby)
+    cy.get(".card").should("have.length", matchingMovies.length);
+    cy.get(".card").each(($card, index) => {
+      cy.wrap($card)
+      .find(".card-title")
+      .should("have.text", matchingMovies[index].title);
   })
 
 });
+})
+})
 })
 })

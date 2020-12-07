@@ -32,7 +32,7 @@ const MovieCard = ({movie, action}) => {
           </p>
           <p>
           <FontAwesomeIcon icon={["fas", "star"]} />
-            <span> {movie.popularity}</span>
+            <span className="popularity"> {movie.popularity}</span>
           </p>
           <p>
           <FontAwesomeIcon icon={["fas", "star"]} />
