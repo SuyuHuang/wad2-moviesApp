@@ -91,11 +91,11 @@ const Login = () => {
     
        <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Email" name="email" onChange={handleChange}/><br />
-        <input type="password" placeholder="Password" name="password" onChange={handleChange}/><br />
+        <input type="text" placeholder="Email" name="email" className='email' onChange={handleChange}/><br />
+        <input type="password" placeholder="Password" name="password" className='password'onChange={handleChange}/><br />
         <button type="submit">Log in</button>
       </form>
-      <a href="/signup">sign up</a>
+      <a href="/signup" className='signin'>sign up</a>
       {user.error && <h4>{user.error}</h4>}
     </>
   )
