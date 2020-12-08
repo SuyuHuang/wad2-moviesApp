@@ -1,12 +1,46 @@
 import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
+import firebase from 'firebase/app'
 import cmt from "../../contexts/UsernameContext"
 import SiteHeader from "../../components/siteHeader"
 import { Redirect } from 'react-router-dom';
 // import './Signup.css' ;\
 
 
+
+var provider = new firebase.auth.GithubAuthProvider();
+const aaa=()=>{
+  console.log("111")
+}
+        const githubSignin=()=> {
+           firebase.auth().signInWithPopup(provider)
+
+           .then(function(result) {
+              var token = result.credential.accessToken;
+              var user = result.user;
+
+              console.log(token)
+              console.log(user)
+           }).catch(function(error) {
+              var errorCode = error.code;
+              var errorMessage = error.message;
+
+              console.log(error.code)
+              console.log(error.message)
+           });
+          //  window.location.replace("./");
+        }
+
+        function githubSignout(){
+           firebase.auth().signOut()
+
+           .then(function() {
+              console.log('Signout successful!')
+           }, function(error) {
+              console.log('Signout failed')
+           });
+        }
 
 
  
@@ -48,9 +82,7 @@ const Login = () => {
         }
         if(result.operationType==="signIn"){
           name=result.user.displayName
-          console.log(name)
-          
-         console.log(result.user)
+  
          
            
           window.location.replace("./");
@@ -94,7 +126,11 @@ const Login = () => {
         <input type="text" placeholder="Email" name="email" className='email' onChange={handleChange}/><br />
         <input type="password" placeholder="Password" name="password" className='password'onChange={handleChange}/><br />
         <button type="submit">Log in</button>
+       
+
+
       </form>
+      <button onClick = {githubSignin}>使用Github账号登录</button>
       <a href="/signup" className='signin'>sign up</a>
       {user.error && <h4>{user.error}</h4>}
     </>

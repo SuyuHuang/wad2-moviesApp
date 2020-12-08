@@ -53,7 +53,7 @@ describe("Movie Details Page", () => {
     cy.get("ul").eq(0).within(() => {
       cy.get("li").eq(4).click();
     });
-  const username='764694182@163.com';
+  const username='764694181@qq.com';
   const password='123456'
     cy.get('h1').eq(0).contains('Log In')
     console.log(cy.get('h1').eq(0).contains('Log In'))
