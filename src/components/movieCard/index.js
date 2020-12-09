@@ -23,7 +23,8 @@ const MovieCard = ({movie, action}) => {
         <div className="card-body">
           <h4 className="card-title ">{movie.title}</h4>
           <p>
-            <FontAwesomeIcon icon={["fas", "calendar"]} />
+          
+          <i class="calendar icon"></i>
             <span> {movie.release_date}</span>
           </p>
           <p>
@@ -31,11 +32,11 @@ const MovieCard = ({movie, action}) => {
             <span> {movie.vote_average}</span>
           </p>
           <p>
-          <FontAwesomeIcon icon={["fas", "star"]} />
+          <i class="gripfire icon"></i>
             <span className="popularity"> {movie.popularity}</span>
           </p>
           <p>
-          <FontAwesomeIcon icon={["fas", "star"]} />
+          <i class="frown icon"></i>
             <span> {movie.vote_count}</span>
           </p>
           

@@ -17,14 +17,13 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import GenrePage from "./pages/genres";
 import { FirebaseAppProvider } from 'reactfire' ;
 import firebaseConfig from './firebaseSDK' ;
-import Logout from './components/Signout'
-import Login from './components/login'
-import Signup from './pages/Signup'
-import firebase from 'firebase/app'
-import { useUser } from 'reactfire' ;
-import { useFirebaseApp } from 'reactfire' ;
-import LoginPage from './pages/Login'
 
+import Signup from './pages/Signup'
+
+import { useUser } from 'reactfire' ;
+
+import LoginPage from './pages/Login'
+import 'semantic-ui-css/semantic.min.css'
 
 const App = () => {
 
@@ -49,6 +48,7 @@ const App = () => {
           <Route path="/actors/:id" component={ActorDetailPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/signup" component={Signup}/>
+        
           <Route path="/" component={HomePage} />
    
           

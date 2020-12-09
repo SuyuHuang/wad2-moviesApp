@@ -2,17 +2,14 @@ import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
 import firebase from 'firebase/app'
-import cmt from "../../contexts/UsernameContext"
-import SiteHeader from "../../components/siteHeader"
-import { Redirect } from 'react-router-dom';
+
 // import './Signup.css' ;\
+import { Button, Divider, Form, Grid, Segment } from 'semantic-ui-react'
 
 
 
 var provider = new firebase.auth.GithubAuthProvider();
-const aaa=()=>{
-  console.log("111")
-}
+
         const githubSignin=()=> {
            firebase.auth().signInWithPopup(provider)
 
@@ -23,8 +20,7 @@ const aaa=()=>{
               console.log(token)
               console.log(user)
            }).catch(function(error) {
-              var errorCode = error.code;
-              var errorMessage = error.message;
+      
 
               console.log(error.code)
               console.log(error.message)
@@ -32,16 +28,10 @@ const aaa=()=>{
           //  window.location.replace("./");
         }
 
-        function githubSignout(){
-           firebase.auth().signOut()
-
-           .then(function() {
-              console.log('Signout successful!')
-           }, function(error) {
-              console.log('Signout failed')
-           });
-        }
-
+    
+        const jump=(()=>{
+          window.location.href="/signup";
+         })
 
  
 const Login = () => {
@@ -105,7 +95,7 @@ const Login = () => {
         } else {
           alert(errorMessage);
         }
-        console.log(error);
+ 
         // Update the error
         setUser({
           ...user,
@@ -120,19 +110,62 @@ const Login = () => {
     
    
     <>
+
+<Segment placeholder>
+    <Grid columns={2} relaxed='very' stackable>
+      <Grid.Column>
+        <Form onSubmit={handleSubmit}>
+          <Form.Input
+          type="text"
+          placeholder="Email" 
+          name="email" 
+          className='email'
+            icon='user'
+            iconPosition='left'
+            label='email'
+          
+            onChange={handleChange}
+          />
+          <Form.Input
+            icon='lock'
+            iconPosition='left'
+            label='password'
+            type='password'
+            placeholder="Password" 
+            name="password" c
+            className='password'
+            onChange={handleChange}
+          />
+
+          <Button content='Login' primary type='submit'/>
+        </Form>
+      </Grid.Column>
+
+      <Grid.Column verticalAlign='middle'>
+        <Button primary content='Sign up' icon='signup' size='big' onClick={jump} />
+        <Button secondary content='Github' icon='github' size='big' onClick={githubSignin} />
     
-       <h1>Log In</h1>
+      </Grid.Column>
+    </Grid>
+
+    <Divider vertical>Or</Divider>
+  </Segment>
+    
+       {/* <h1>Log In</h1>
       <form onSubmit={handleSubmit}>
         <input type="text" placeholder="Email" name="email" className='email' onChange={handleChange}/><br />
         <input type="password" placeholder="Password" name="password" className='password'onChange={handleChange}/><br />
-        <button type="submit">Log in</button>
+        <Button type="submit">Log in</Button>
        
 
 
       </form>
-      <button onClick = {githubSignin}>使用Github账号登录</button>
+      <div>
+      <Button primary onClick = {githubSignin}>使用Github账号登录</Button>
+      <Button secondary onClick = {githubSignin}>使用Github账号登录</Button>
       <a href="/signup" className='signin'>sign up</a>
       {user.error && <h4>{user.error}</h4>}
+      </div> */}
     </>
   )
   
