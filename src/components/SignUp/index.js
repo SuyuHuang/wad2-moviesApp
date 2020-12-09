@@ -2,7 +2,6 @@ import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
 
-// import './Signup.css' ;
  
 const Signup = () => {
   // User State
