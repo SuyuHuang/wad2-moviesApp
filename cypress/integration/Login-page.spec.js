@@ -65,6 +65,7 @@ describe("Movie Details Page", () => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').click();
+    cy.wait(5000)
     cy.get("li").eq(4).contains("Login")
   })
   it("should be able to log in using github",()=>{

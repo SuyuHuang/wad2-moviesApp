@@ -79,7 +79,7 @@ describe("Movie Details Page", () => {
       });
       
   it("should display the movie according to the genres clicked", () => {
-    const selectedGenreId = 28;
+    const selectedGenreId = 10751;
      
         const matchingMovies = filterByGenre(movies, selectedGenreId)
     cy.get("h4").contains("Overview");
@@ -93,6 +93,15 @@ describe("Movie Details Page", () => {
    
       });
       cy.get(".card").should("have.length", matchingMovies.length);
+    })
+    it("should be able to give rates to in the detailed movie page",()=>{
+      cy.get('input').eq(0).clear()
+      cy.get('input').eq(0).type(8);
+      cy.get('input').eq(1).click()
+cy.get(".content").
+within(()=>{
+  cy.get("p").contains("The item/record was updated successfully.")
+})
     })
       
 
