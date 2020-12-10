@@ -11,7 +11,8 @@ import { useUser } from 'reactfire' ;
 
 const LoginPage = () => {
   const user = useUser();
- 
+
+ console.log(user)
 
   ;
   
