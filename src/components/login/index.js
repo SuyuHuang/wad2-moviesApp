@@ -53,7 +53,7 @@ const Login = () => {
  
   // Import firebase
   const firebase = useFirebaseApp();
- 
+ console.log(firebase);
   // Submit function (Log in user)
   const handleSubmit = e => {
     let name="";
