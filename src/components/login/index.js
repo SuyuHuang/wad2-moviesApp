@@ -56,6 +56,7 @@ const Login = () => {
  console.log(firebase);
   // Submit function (Log in user)
   const handleSubmit = e => {
+    // eslint-disable-next-line no-unused-vars
     let name="";
     e.preventDefault();
     // Log in code here.
@@ -79,11 +80,12 @@ const Login = () => {
           
 
         }
+    
 
       })
       .then(result=>{
         
-       
+    
         }
 
       )
@@ -142,7 +144,7 @@ const Login = () => {
       </Grid.Column>
 
       <Grid.Column verticalAlign='middle'>
-        <Button primary content='Sign up' icon='signup' size='big' onClick={jump} />
+        <Button primary content='Sign up' icon='signup' size='big' className="signup" onClick={jump} />
         <Button secondary content='Github' icon='github' size='big' onClick={githubSignin} />
     
       </Grid.Column>

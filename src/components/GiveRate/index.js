@@ -14,7 +14,7 @@ const GiveRate = ({ id }) => {
     const [rate, setRate] = useState(0.5)
     const [isSuccess, setIsSuccess] = useState(false)
     const [message, setMessage] = useState("")
-    console.log(rate)
+
     const rateAction = (e, id, rate) => {
         e.preventDefault()
 

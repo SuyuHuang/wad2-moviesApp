@@ -1,6 +1,6 @@
 
 
-import React, { useContext } from "react";
+import React from "react";
 import Signup from '../components/SignUp'
 
 

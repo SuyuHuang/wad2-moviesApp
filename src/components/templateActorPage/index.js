@@ -1,7 +1,7 @@
 import React from "react";
 import ActorHeader from '../headerActor'
 import './actorPage.css'
-import { Container, Header ,Divider} from 'semantic-ui-react'
+
 import { List } from 'semantic-ui-react'
 
 let sex

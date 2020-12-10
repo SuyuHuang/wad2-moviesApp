@@ -32,7 +32,7 @@ describe("Movie Details Page", () => {
       })
       .then((movieDetails) => {
         movie = movieDetails;
-        console.log(movie)
+      
         return movieDetails.id;
       })
       cy.request(

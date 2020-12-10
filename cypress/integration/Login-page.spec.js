@@ -21,12 +21,7 @@ describe("Movie Details Page", () => {
   it("should be able to enter to login page via the home page", () => {
    
     cy.get("ul").eq(0).within(() => {
-      // if( cy.get("li").eq(4).chainerId='chainer8'){
-      //   console.log("not login")
-      // }
-      // else if(cy.get("li").eq(4).chainerId='chainer7'){
-      //   console.log('login')
-      // }
+ 
       cy.get("li").eq(4).click();
       
     });
@@ -38,7 +33,7 @@ describe("Movie Details Page", () => {
     cy.get("ul").eq(0).within(() => {
       cy.get("li").eq(4).click();
     });
-    cy.get('.signin').click()
+    cy.get('button').eq(1).click()
 
     cy.get("form").within(()=>{
       cy.get("input").eq(0).clear().type(nickname);
@@ -55,8 +50,6 @@ describe("Movie Details Page", () => {
     });
   const username='764694181@qq.com';
   const password='123456'
-    cy.get('h1').eq(0).contains('Log In')
-    console.log(cy.get('h1').eq(0).contains('Log In'))
 
     cy.get("form").within(()=>{
       cy.get("input").eq(0).clear().type(username);
@@ -71,6 +64,20 @@ describe("Movie Details Page", () => {
     cy.get("ul").eq(0).within(() => {
       cy.get("li").eq(4).click();
     });
+    cy.get('button').click();
+    cy.get("li").eq(4).contains("Login")
+  })
+  it("should be able to log in using github",()=>{
+    const username='764694182@163.com'
+    const password='huangshuyu003'
+    cy.get("ul").eq(0).within(() => {
+      cy.get("li").eq(4).click();
+    });
+
+
+    cy.get("button").eq(2).click()
+cy.wait(5000)
+ 
     cy.get('button').click();
     cy.get("li").eq(4).contains("Login")
   })

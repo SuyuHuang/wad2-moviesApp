@@ -1,7 +1,6 @@
 import React, { useContext } from "react";
 import "./filterControls.css";
 import { GenresContext } from '../../contexts/genresContext' 
-import { Divider } from 'semantic-ui-react'
 const FilterControls = props => {
  
   const context = useContext(GenresContext);
