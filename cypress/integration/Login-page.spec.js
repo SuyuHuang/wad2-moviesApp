@@ -19,6 +19,7 @@ describe("Movie Details Page", () => {
     
   });
   it("should be able to enter to login page via the home page", () => {
+    cy.wait(10000)
    
     cy.get("ul").eq(0).within(() => {
  

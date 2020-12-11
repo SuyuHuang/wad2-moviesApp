@@ -20,7 +20,7 @@ describe("Navigation", () => {
     )
       .its("body")
       .then((response) => {
-        c
+        
         reviews = response.results;
       });
   });
