@@ -20,7 +20,7 @@ import firebaseConfig from './firebaseSDK' ;
  
 import Signup from './pages/Signup'
  
-
+ 
 import LoginPage from './pages/Login'
 import 'semantic-ui-css/semantic.min.css'
 
