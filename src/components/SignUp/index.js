@@ -13,7 +13,7 @@ const Signup = () => {
     password : '' ,
     error : '' ,
   });
- 
+  
 
   const handleChange = e => {
     setUser({
