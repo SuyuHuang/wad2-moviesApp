@@ -30,6 +30,12 @@ describe("Movie Details Page", () => {
   });
 
   it("should be able to sign up", () =>{
+    cy.get("ul").eq(0).within(() => {
+      cy.get("li").eq(4).click();
+    });
+    cy.get('button').click();
+    cy.wait(5000)
+    cy.get("li").eq(4).contains("Login")
   
     cy.get("ul").eq(0).within(() => {
       cy.get("li").eq(4).click();

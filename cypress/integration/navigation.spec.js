@@ -30,6 +30,7 @@ describe("Navigation", () => {
       cy.visit("/");
     });
     it("should navigate to the movie details page and change browser URL", () => {
+      cy.wait(10000)
       cy.get(".card").eq(1).find("img").click();
       cy.url().should("include", `/movies/${movies[1].id}`);
       cy.get("h2").contains(movies[1].title);
