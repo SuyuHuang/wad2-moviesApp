@@ -17,7 +17,7 @@ import AddMovieReviewPage from './pages/addMovieReviewPage'
 import GenrePage from "./pages/genres";
 import { FirebaseAppProvider } from 'reactfire' ;
 import firebaseConfig from './firebaseSDK' ;
-
+ 
 import Signup from './pages/Signup'
 
 
