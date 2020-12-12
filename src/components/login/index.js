@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useFirebaseApp } from 'reactfire';
 import 'firebase/auth'
 import firebase from 'firebase/app'
-
+import { Link } from "react-router-dom";
 // import './Signup.css' ;\
 import { Button, Divider, Form, Grid, Segment,Message } from 'semantic-ui-react'
 
@@ -153,7 +153,9 @@ const Login = () => {
           </Grid.Column>
 
           <Grid.Column verticalAlign='middle'>
-            <Button primary content='Sign up' icon='signup' size='big' className="signup" onClick={jump} />
+            <Link to='./signup'>
+            <Button primary content='Sign up' icon='signup' size='big' className="signup"  />
+            </Link>
             <Button secondary content='Github' icon='github' size='big' onClick={githubSignin} />
 
           </Grid.Column>
@@ -167,21 +169,7 @@ const Login = () => {
                     content={message}
                     className={isSuccess ? ["bg-success", "text-white"] : ["bg-danger", "text-white"]} />}
 
-      {/* <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Email" name="email" className='email' onChange={handleChange}/><br />
-        <input type="password" placeholder="Password" name="password" className='password'onChange={handleChange}/><br />
-        <Button type="submit">Log in</Button>
-       
 
-
-      </form>
-      <div>
-      <Button primary onClick = {githubSignin}>使用Github账号登录</Button>
-      <Button secondary onClick = {githubSignin}>使用Github账号登录</Button>
-      <a href="/signup" className='signin'>sign up</a>
-      {user.error && <h4>{user.error}</h4>}
-      </div> */}
     </>
   )
 
