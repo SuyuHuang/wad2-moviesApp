@@ -2,8 +2,8 @@ import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
 import { Form, Segment ,Button} from 'semantic-ui-react'
-import firebase from 'firebase/app';
-console.log(firebase.apps.length)
+
+
 const Signup = () => {
 
   // User State

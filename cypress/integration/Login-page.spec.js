@@ -82,21 +82,21 @@ describe("Movie Details Page", () => {
 
   })
 
-  it("should be able to sign up", () => {
+  // it("should be able to sign up", () => {
 
-    cy.get("ul").eq(0).within(() => {
-      cy.get("li").eq(4).click();
-    });
-    cy.get('button').eq(1).click()
-    cy.wait(100000)
+  //   cy.get("ul").eq(0).within(() => {
+  //     cy.get("li").eq(4).click();
+  //   });
+  //   cy.get('button').eq(1).click()
+  //   cy.wait(100000)
 
   
-      cy.get("input").eq(0).clear().type(nickname);
-      cy.get('input').eq(1).clear().type(email);
-      cy.get('input').eq(2).clear().type(password);
-      cy.get('button').click();
+  //     cy.get("input").eq(0).clear().type(nickname);
+  //     cy.get('input').eq(1).clear().type(email);
+  //     cy.get('input').eq(2).clear().type(password);
+  //     cy.get('button').click();
     
-  })
+  // })
 
 
   it("should be able to log in when the user has not logged in the system", () => {
