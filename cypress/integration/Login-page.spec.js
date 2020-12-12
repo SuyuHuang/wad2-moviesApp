@@ -1,3 +1,5 @@
+
+
 let movieId = null
 let movie;
 let reviews;
@@ -6,14 +8,9 @@ let logined;
 const nickname = 'Kenny'
 const email = '894723982@163.com'
 const password = '123456'
+
 describe("Movie Details Page", () => {
-  before(() => {
-
-
-
-
-
-  });
+ 
   beforeEach(() => {
     cy.visit(`/`);
 
@@ -59,6 +56,7 @@ describe("Movie Details Page", () => {
     cy.get("input").eq(0).clear().type(username);
     cy.get('input').eq(1).clear().type(password)
     cy.get('button').eq(0).click();
+    cy.wait(10000)
     cy.get(".content").
       within(() => {
         cy.get("p").contains("The password is invalid or the user does not have a password.")
@@ -86,18 +84,17 @@ describe("Movie Details Page", () => {
 
   it("should be able to sign up", () => {
 
-
     cy.get("ul").eq(0).within(() => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').eq(1).click()
 
-    cy.get("form").within(() => {
+  
       cy.get("input").eq(0).clear().type(nickname);
       cy.get('input').eq(1).clear().type(email);
       cy.get('input').eq(2).clear().type(password);
       cy.get('button').click();
-    })
+    
   })
 
 
@@ -122,7 +119,7 @@ describe("Movie Details Page", () => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').click();
-    cy.wait(50000)
+    cy.wait(10000)
     cy.get("li").eq(4).contains("Login")
   })
   it("should be able to log in using github", () => {
@@ -132,12 +129,10 @@ describe("Movie Details Page", () => {
     });
 
 
-    cy.get("button").eq(2).click()
-    cy.wait(5000)
-
-    cy.get('button').click();
+  
     cy.get("li").eq(4).contains("Login")
   })
+ 
 
 });
 

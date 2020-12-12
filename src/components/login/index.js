@@ -11,6 +11,7 @@ import { Button, Divider, Form, Grid, Segment,Message } from 'semantic-ui-react'
 var provider = new firebase.auth.GithubAuthProvider();
 const githubSignin = () => {
 
+
   firebase.auth().signInWithPopup(provider)
 
     .then(function (result) {
