@@ -35,7 +35,7 @@ const SiteHeader = lazy(() => import("./components/siteHeader"));
 const UpcomingMovieCard = lazy(() => import("./pages/UpcomingPage"));
 const GenrePage = lazy(() => import("./pages/genres"));
 const AddMovieReviewPage = lazy(() => import("./pages/addMovieReviewPage"));
-const Signup = lazy(() => import("./pages/Signup"));
+const SignupPage = lazy(() => import("./pages/Signup"));
 const LoginPage = lazy(() => import("./pages/Login"));
 
 
@@ -62,7 +62,7 @@ const App = () => {
           <Route path="/actor/" component={ACtorPage}/>
           <Route path="/actors/:id" component={ActorDetailPage}/>
           <Route path="/login" component={LoginPage}/>
-          <Route path="/signup" component={Signup}/>
+          <Route path="/signup" component={SignupPage}/>
 
           <Route path="/" component={HomePage} />
    
