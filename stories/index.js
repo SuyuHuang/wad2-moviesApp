@@ -1,16 +1,23 @@
-import React from "react";
+import React, { lazy, Suspense  }  from "react";
 import { storiesOf } from "@storybook/react";
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
-import MovieCard from "../src/components/movieCard";
-import FilterControls from "../src/components/filterControls";
-import MoviesHeader from "../src/components/headerMovieList";
-import MovieList from "../src/components/movieList";
-import MovieDetails from "../src/components/movieDetails";
-import MovieHeader from "../src/components/headerMovie";
-import AddFavoriteButton from "../src/components/buttons/addToFavorites";
+// import MovieCard from "../src/components/movieCard";
+// import FilterControls from "../src/components/filterControls";
+// import MoviesHeader from "../src/components/headerMovieList";
+// import MovieList from "../src/components/movieList";
+// import MovieDetails from "../src/components/movieDetails";
+// import MovieHeader from "../src/components/headerMovie";
+// import AddFavoriteButton from "../src/components/buttons/addToFavorites";
 import { MemoryRouter } from "react-router";
 import GenresContextProvider from "../src/contexts/genresContext";
 import { action } from "@storybook/addon-actions";
+
+const MovieCard = lazy(() => import("../src/components/movieCard"));
+const FilterControls = lazy(() => import("../src/components/filterControls"));
+const MoviesHeader = lazy(() => import("../src/components/headerMovieList"));
+const MovieList = lazy(() => import("../src/components/movieList"));
+const  MovieHeader = lazy(() => import("../src/components/headerMovie"));
+const  MovieDetails = lazy(() => import("../src/components/movieDetails"));
 
 const sample = {
   adult: false,
