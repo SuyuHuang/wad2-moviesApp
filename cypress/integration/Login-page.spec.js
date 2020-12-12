@@ -88,7 +88,7 @@ describe("Movie Details Page", () => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').eq(1).click()
-    cy.wait(10000)
+    cy.wait(100000)
 
   
       cy.get("input").eq(0).clear().type(nickname);
@@ -120,7 +120,7 @@ describe("Movie Details Page", () => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').click();
-    cy.wait(100000)
+    cy.wait(10000)
     cy.get("li").eq(4).contains("Login")
   })
   it("should be able to log in using github", () => {
