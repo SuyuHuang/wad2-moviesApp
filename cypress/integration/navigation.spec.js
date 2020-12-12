@@ -61,9 +61,13 @@ describe("Navigation", () => {
     });
     it("should navigate to the movies detail page and change the browser URL", () => {
       
-      cy.get(".card").eq(0).find("img").click();
-      cy.url().should("include", `/movies/${movies[0].id}`);
-      cy.get("h2").contains(movies[0].title);
+      cy.get("ul").eq(0).within(() => {
+
+        cy.get("li").eq(2).click();
+        cy.wait(5000)
+        cy.url().should("include", `/favorites`);
+  
+      });
     });
   });
   describe("The Go Back button", () => {

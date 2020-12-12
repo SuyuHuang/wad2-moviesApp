@@ -88,6 +88,7 @@ describe("Movie Details Page", () => {
       cy.get("li").eq(4).click();
     });
     cy.get('button').eq(1).click()
+    cy.wait(10000)
 
   
       cy.get("input").eq(0).clear().type(nickname);
