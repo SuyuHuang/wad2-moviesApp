@@ -10,7 +10,7 @@ describe("Movie Details Page", () => {
 
 
 
-    
+
     cy.request(
       `https://api.themoviedb.org/3/discover/movie?api_key=${Cypress.env(
         "TMDB_KEY"
@@ -32,18 +32,18 @@ describe("Movie Details Page", () => {
       })
       .then((movieDetails) => {
         movie = movieDetails;
-      
+
         return movieDetails.id;
       })
-      cy.request(
-        `https://api.themoviedb.org/3/movie/upcoming?api_key=${Cypress.env(
-          "TMDB_KEY"
-        )}&language=en-US&page=1`
-      )
-        .its("body")    // Take the body of HTTP response from TMDB
-        .then((response) => {
-          movies = response.results
-        })
+    cy.request(
+      `https://api.themoviedb.org/3/movie/upcoming?api_key=${Cypress.env(
+        "TMDB_KEY"
+      )}&language=en-US&page=1`
+    )
+      .its("body")    // Take the body of HTTP response from TMDB
+      .then((response) => {
+        movies = response.results
+      })
   });
   beforeEach(() => {
     cy.visit(`/`);
@@ -53,7 +53,7 @@ describe("Movie Details Page", () => {
   it("should display movie title in the page header", () => {
     cy.get("h2").contains(movie.title);
   });
-  
+
   it("should display the movie's details", () => {
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(movie.overview);
@@ -65,23 +65,23 @@ describe("Movie Details Page", () => {
         cy.get("li").eq(2).contains("Release Date");
         cy.get("li").eq(3).contains(movie.release_date);
       });
-    })
-    it("should display the Home icon with the correct URL value", () => {
-        cy.get(".fa-home")
-          .parent()
-          .should("have.attr", "href")
-          .should("include", movie.homepage);
-      });
-      it("should display the poster correctly", () => {
-        cy.get(".movie")
-          .should("have.attr", "src")
-          .should("include", movie.poster_path);
-      });
-      
+  })
+  it("should display the Home icon with the correct URL value", () => {
+    cy.get(".fa-home")
+      .parent()
+      .should("have.attr", "href")
+      .should("include", movie.homepage);
+  });
+  it("should display the poster correctly", () => {
+    cy.get(".movie")
+      .should("have.attr", "src")
+      .should("include", movie.poster_path);
+  });
+
   it("should display the movie according to the genres clicked", () => {
     const selectedGenreId = 10751;
-     
-        const matchingMovies = filterByGenre(movies, selectedGenreId)
+
+    const matchingMovies = filterByGenre(movies, selectedGenreId)
     cy.get("h4").contains("Overview");
     cy.get("h4").next().contains(movie.overview);
     cy.get("ul")
@@ -89,20 +89,20 @@ describe("Movie Details Page", () => {
       .within(() => {
         cy.get("li").eq(0).contains("Genres");
         cy.get("li").eq(1).click();
-        
-   
+
+
       });
-      cy.get(".card").should("have.length", matchingMovies.length);
-    })
-    it("should be able to give rates to in the detailed movie page",()=>{
-      cy.get('input').eq(0).clear()
-      cy.get('input').eq(0).type(8);
-      cy.get('input').eq(1).click()
-cy.get(".content").
-within(()=>{
-  cy.get("p").contains("The item/record was updated successfully.")
-})
-    })
-      
+    cy.get(".card").should("have.length", matchingMovies.length);
+  })
+  it("should be able to give rates to in the detailed movie page", () => {
+    cy.get('input').eq(0).clear()
+    cy.get('input').eq(0).type(8);
+    cy.get('input').eq(1).click()
+    cy.get(".content").
+      within(() => {
+        cy.get("p").contains("The item/record was updated successfully.")
+      })
+  })
+
 
 });
