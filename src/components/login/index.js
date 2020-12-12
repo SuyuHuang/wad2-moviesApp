@@ -32,9 +32,7 @@ const githubSignin = () => {
 }
 
 
-const jump = (() => {
-  window.location.href = "/signup";
-})
+
 
 
 const Login = () => {
