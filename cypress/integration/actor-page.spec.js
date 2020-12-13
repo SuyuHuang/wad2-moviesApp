@@ -54,7 +54,7 @@ describe("Movie Details Page", () => {
       })
   });
   beforeEach(() => {
-    cy.visit('/actor/');
+    cy.visit('/actor');
     cy.wait(10000)
     // cy.get(".actor").eq(2).find("img").click({force:true});
 
