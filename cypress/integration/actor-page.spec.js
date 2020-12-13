@@ -54,7 +54,12 @@ describe("Movie Details Page", () => {
       })
   });
   beforeEach(() => {
-    cy.visit('/actor');
+    cy.visit(`/`);
+    cy.get("ul").eq(0).within(() => {
+
+      cy.get("li").eq(3).click();
+
+    });
     cy.wait(10000)
     // cy.get(".actor").eq(2).find("img").click({force:true});
 
