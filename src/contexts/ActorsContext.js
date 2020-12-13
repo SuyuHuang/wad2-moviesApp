@@ -29,7 +29,6 @@ const ActorsContextProvider = (props) => {
         type:"load",payload:{actor} });
     
       });
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
  

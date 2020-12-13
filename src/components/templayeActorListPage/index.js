@@ -1,7 +1,7 @@
 import React from "react";
-import Header from "../headerMovieList";
-import ActorList from "../ActorList";
 
+import ActorList from "../ActorList";
+import { Header ,Image} from 'semantic-ui-react'
 
 const ActorListPageTemplate = ({ actors, title, action }) =>  {
  
@@ -12,7 +12,10 @@ const ActorListPageTemplate = ({ actors, title, action }) =>  {
 
 
   return (
-    <>
+    <><Header as='h2'>
+    <Image circular src='https://react.semantic-ui.com/images/avatar/large/patrick.png' />
+    Actor No.{displayedActors.length}
+  </Header>
       <Header title={title} numMovies={displayedActors.length} />
       
       <ActorList

@@ -5,6 +5,8 @@ import {MoviesContext} from '../../contexts/moviesContext'
 import { withRouter } from "react-router-dom";
 import { useUser } from 'reactfire' ;
 
+import { Button,Input ,TextArea} from 'semantic-ui-react'
+
 const ReviewForm = ({ movie, history }) => {
   const { register, handleSubmit, errors, reset } = useForm();
   const context = useContext(MoviesContext);
@@ -12,13 +14,18 @@ const user=useUser();
   const onSubmit = data => {
     context.addReview(movie, data)
     history.push("/movies/favorites");
+    // window.location.replace("./");
   };
+
+
+  
 
   return (
     <form className="form bg-dark text-light" onSubmit={handleSubmit(onSubmit)}>
+     
       <h3>Add your review</h3>
       <div className="form-group">
-        <input
+        <Input
           type="text"
           className="form-control"
           placeholder={user.displayName}
@@ -27,9 +34,13 @@ const user=useUser();
           ref={register({ required: "Author name required" })}
         />
       </div>
+
+     
+
+
       {errors.author && <p className=" text-white">{errors.author.message} </p>}
       <div className="form-group">
-        <textarea
+        <TextArea
           rows="10"
           type="text"
           className="form-control"
@@ -46,10 +57,10 @@ const user=useUser();
         <p className="text-white">{errors.content.message} </p>
       )}
 
-      <button type="submit" className="btn btn-primary">
+      <Button type="submit" className="btn btn-primary">
         Submit
-      </button>
-      <button
+      </Button>
+      <Button
         type="reset"
         className="btn btn-primary reset"
         onClick={() => {
@@ -60,8 +71,13 @@ const user=useUser();
         }}
       >
         Reset
-      </button>
+      </Button>
+    
     </form>
+    
+    
+
+  
   );
 };
 

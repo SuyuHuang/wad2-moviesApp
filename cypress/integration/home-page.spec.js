@@ -1,6 +1,22 @@
 let movies;    // List of movies from TMDB
 
 // Utility functions
+
+const compare=(property,desc)=>{
+  return function (a, b) {
+      var value1 = a[property];
+      var value2 = b[property];
+      if(desc===true){         
+          return value1 - value2;
+      }else{
+          return value2 - value1;
+      }
+  }
+}
+
+const filterBySortin = (movieList, sortFilter,sequence) =>
+  movieList.sort(compare(sortFilter,sequence));
+
 const filterByTitle = (movieList, string) =>
   movieList.filter((m) => m.title.toLowerCase().search(string) !== -1);
 
@@ -25,7 +41,7 @@ describe("Home Page ", () => {
   });
 
   describe("Base tests", () => {
-    it("displays page header", () => {
+    it("Enter the login page", () => {
       cy.get("h2").contains("No. Movies");
       cy.get(".badge").contains(20);
   });
@@ -91,9 +107,46 @@ describe("Home Page ", () => {
           .find(".card-title")
           .should("have.text", matchingMovies[index].title);
         });
-      })
+      }
+      
+      )
+   
   });
+  describe("By the sortby option", () => {
+    it("should display movies with the speficied sortby value", () => {
+      const sortFilter = 'popularity'
+      const matchingMovies = filterBySortin(movies,sortFilter,false);
+      // cy.get("input").clear().type(searchString) ;
+      cy.get("select").eq(1).select(sortFilter); 
+      cy.get(".card").should("have.length", matchingMovies.length);
+      cy.get(".card").each(($card, index) => {
+        cy.wrap($card)
+        .find(".card-title")
+        .should("have.text", matchingMovies[index].title);
+      });
+    })
+
+ 
+  
+
+  it("should display moives according to DESC sequence", () => {
+    const sortFilter = 'popularity'
+    const sequence=true;
+    const matchingMovies = filterBySortin(movies,sortFilter,sequence);
+   
+    const sortby='DESC'
+    // cy.get("input").clear().type(searchString) ;
+    cy.get("select").eq(1).select(sortFilter); 
+    cy.get('select').eq(2).select(sortby)
+    cy.get(".card").should("have.length", matchingMovies.length);
+    cy.get(".card").each(($card, index) => {
+      cy.wrap($card)
+      .find(".card-title")
+      .should("have.text", matchingMovies[index].title);
+  })
 
 });
+})
+})
 })
 })
