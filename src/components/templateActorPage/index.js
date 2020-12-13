@@ -42,7 +42,7 @@ const TemplateActorPage = ({actor,children }) => {
             alt={actor.name}
           />
           </div>
-           <List>
+           <List class='actordetail'>
     <List.Item>
       <List.Header>  <i class="birthday cake icon"></i>Birthday</List.Header>{actor.birthday}
     </List.Item>

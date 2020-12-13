@@ -11,13 +11,13 @@ export default ({actor}) => {
     <>
 
 
-  <div>
+  <div class='biography'>
   <Container textAlign='center'>{actor.name}</Container>
-  <Container text>
+  <Container text >
     
       <h4>biography</h4>
       <Divider />
-      <p>{actor.biography}</p>
+      <p >{actor.biography}</p>
       </Container>
       
       </div>
