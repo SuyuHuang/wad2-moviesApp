@@ -25,7 +25,7 @@ const ActorContextProvider = (props) => {
     getActors().then((actors) => {
     
       dispatch({ type: "load", payload: { actors:actors } });
-      // console.log(actors)
+    
       
     });
     // eslint-disable-next-line react-hooks/exhaustive-deps

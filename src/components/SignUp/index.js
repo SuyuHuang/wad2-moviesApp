@@ -1,9 +1,11 @@
 import React, { useState } from 'react' ;
 import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
+import { Form, Segment ,Button} from 'semantic-ui-react'
 
- 
+
 const Signup = () => {
+
   // User State
   const [user, setUser] = useState({
     nickname : '' ,
@@ -11,7 +13,7 @@ const Signup = () => {
     password : '' ,
     error : '' ,
   });
- 
+  
 
   const handleChange = e => {
     setUser({
@@ -66,14 +68,16 @@ const handleSubmit = async (e) => {
  
   return (
     <>
+     <Segment placeholder>
        <h1>Sign up</h1>
-      <form onSubmit={handleSubmit}>
-        <input type="text" placeholder="Nickname" name="nickname" onChange={handleChange}/><br />
-        <input type="text" placeholder="Email" name="email" onChange={handleChange}/><br />
-        <input type="password" placeholder="Password" name="password" onChange={handleChange}/><br />
-        <button type="submit">Sign Up</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <Form.Input type="text" placeholder="Nickname" name="nickname" onChange={handleChange}/><br />
+        <Form.Input type="text" placeholder="Email" name="email" onChange={handleChange}/><br />
+        <Form.Input type="password" placeholder="Password" name="password" onChange={handleChange}/><br />
+        <Button type="submit">Sign Up</Button>
+      </Form>
       {user.error && <h4>{user.error}</h4>}
+      </Segment>
     </>
   )
 };

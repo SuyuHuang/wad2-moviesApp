@@ -4,8 +4,8 @@ import useForm from "react-hook-form";
 import {MoviesContext} from '../../contexts/moviesContext'
 import { withRouter } from "react-router-dom";
 import { useUser } from 'reactfire' ;
-import {RateMovies} from '../../api/tmdb-api'
-import { Button, Divider, Form, Grid, Segment,Input ,TextArea} from 'semantic-ui-react'
+
+import { Button,Input ,TextArea} from 'semantic-ui-react'
 
 const ReviewForm = ({ movie, history }) => {
   const { register, handleSubmit, errors, reset } = useForm();

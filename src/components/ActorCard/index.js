@@ -9,7 +9,7 @@ const ActorCard = ({ actors }) => {
 
   return (
     <div className="col-sm-3">
-      <div >
+      <div  class="actor">
         <Link to={
           {
             pathname: `/actors/${actors.id}`,
@@ -21,7 +21,7 @@ const ActorCard = ({ actors }) => {
 
           <img
             className="card-img-tag center "
-            class="ui medium circular"
+            class="ui small circular"
             alt={actors.title}
             src={
               actors.profile_path

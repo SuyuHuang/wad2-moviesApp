@@ -8,7 +8,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "bootstrap": "^4.3.1",
     "dotenv": "^8.2.0",
-    "firebase": "^8.1.1",
+    "firebase": "^7.24.0",
     "react": "^16.11.0",
     "react-dom": "^16.11.0",
     "react-hook-form": "^3.29.4",
@@ -19,6 +19,7 @@
     "semantic-ui-react": "^2.0.1"
   },
   "scripts": {
+    "analyze": "source-map-explorer 'build/static/js/*.js'",
     "storybook": "start-storybook -s ./public -p 6006 -c ./.storybook",
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -40,6 +41,7 @@
     "@storybook/react": "^5.3.1",
     "babel-loader": "^8.0.6",
     "cypress": "^5.1.0",
+    "source-map-explorer": "^2.5.0",
     "start-server-and-test": "^1.10.6"
   }
 }
