@@ -51,6 +51,7 @@ describe("Movie Details Page", () => {
   });
 
   it("should display movie title in the page header", () => {
+
     cy.get("h2").contains(movie.title);
   });
 
@@ -79,7 +80,8 @@ describe("Movie Details Page", () => {
   });
 
   it("should display the movie according to the genres clicked", () => {
-    const selectedGenreId = 10751;
+    const selectedGenreId = movie.genres[0].id;
+
 
     const matchingMovies = filterByGenre(movies, selectedGenreId)
     cy.get("h4").contains("Overview");
