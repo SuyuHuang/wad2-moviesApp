@@ -59,7 +59,7 @@ const App = () => {
           <Route path="/reviews/:id" component={MovieReviewPage} />
           <Route path="/movies/:id" component={MoviePage} />
           <Route path="/genres/:name" component={GenrePage}/>
-          <Route path="/actor/" component={ACtorPage}/>
+          <Route path="/actor" component={ACtorPage}/>
           <Route path="/actors/:id" component={ActorDetailPage}/>
           <Route path="/login" component={LoginPage}/>
           <Route path="/signup" component={SignupPage}/>
