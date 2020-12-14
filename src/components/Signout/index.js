@@ -32,12 +32,7 @@ lastsigntime=user.metadata.lastSignInTime
   return (
  
     <>
-    {/* <h1>user's email</h1>
-    <h2>{user.email}</h2>
-    <h1>user.emailVerified </h1>
-    <h2>{user.emailVerified}</h2> */}
-    {/* <h1>user.displayName </h1>
-    <h2>{user.displayName}</h2> */}
+
     
  {user&&<div>
    < Card>
