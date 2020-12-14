@@ -21,6 +21,7 @@ const GiveRate = ({ id }) => {
         RateMovies(id, rate).then(res => {
             setIsSuccess(res.success)
             setMessage(res.status_message)
+            console.log(res)
         })
     }
     return (

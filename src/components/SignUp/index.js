@@ -6,7 +6,7 @@ import { Form, Segment ,Button} from 'semantic-ui-react'
 
 const Signup = () => {
 
-  // User State
+
   const [user, setUser] = useState({
     nickname : '' ,
     email : '' ,
@@ -25,21 +25,21 @@ const Signup = () => {
 
   const firebase = useFirebaseApp();
 
-  // onChange function
+
 const handleSubmit = async (e) => {
     e.preventDefault();
-    // Sign up code here.
+
     await firebase.auth().createUserWithEmailAndPassword(user.email, user.password)
       .then( result => {
-        // Update the nickname
+
         result.user.updateProfile({
           displayName : user.nickname,
         });
  
-        // URL of my website.
+
         const myURL = { url : 'http://localhost:3000/' }
+       
  
-        // Send Email Verification and redirect to my website.
         result.user.sendEmailVerification(myURL)
           .then( () => {
             setUser({
@@ -54,10 +54,10 @@ const handleSubmit = async (e) => {
             })
           })
           window.location.replace("./login");
-        // Sign Out the user.
+     
         firebase.auth().signOut();
       }).catch( error => {
-        // Update the error
+  
         setUser({
           ...user,
           error : error.message,

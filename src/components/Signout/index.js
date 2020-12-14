@@ -4,11 +4,16 @@ import { useFirebaseApp } from 'reactfire' ;
 import 'firebase/auth'
 import { useUser } from 'reactfire' ;
 import { Card, Icon, Image,Button } from 'semantic-ui-react'
-let creationtime=''
-let lastsigntime=''
-let verified=''
+let creationtime='Thu, 10 Dec 2020 22:45:14 GMT'
+let lastsigntime='Sun, 13 Dec 2020 23:54:16 GMT'
+let verified='true'
 const Logout = () => {
   const user = useUser();
+  if(user==null){
+    user.metadata.creationTime=creationtime
+    user.metadata.lastSignInTime=lastsigntime
+ user.emailVerified=''+verified
+  }
  if(user!=null){
   // Import firebase
  creationtime=user.metadata.creationTime
@@ -27,12 +32,7 @@ lastsigntime=user.metadata.lastSignInTime
   return (
  
     <>
-    {/* <h1>user's email</h1>
-    <h2>{user.email}</h2>
-    <h1>user.emailVerified </h1>
-    <h2>{user.emailVerified}</h2> */}
-    {/* <h1>user.displayName </h1>
-    <h2>{user.displayName}</h2> */}
+
     
  {user&&<div>
    < Card>
