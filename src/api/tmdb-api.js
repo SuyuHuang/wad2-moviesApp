@@ -75,5 +75,5 @@ function postData(url, data) {
 }
 
 export const RateMovies = (id, value) => {
-  return postData('https://api.themoviedb.org/3/movie/602211/rating?api_key=6ee3e9a0aa44e4dc5951e0598bae1695&session_id=7f569a2328c1d123b1320da412a2e7d920663d4e', {value: value})
+  return postData(`https://api.themoviedb.org/3/movie/${id}/rating?api_key=6ee3e9a0aa44e4dc5951e0598bae1695&session_id=7f569a2328c1d123b1320da412a2e7d920663d4e`, {value: value})
 };

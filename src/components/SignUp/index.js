@@ -38,7 +38,7 @@ const handleSubmit = async (e) => {
  
         // URL of my website.
         const myURL = { url : 'http://localhost:3000/' }
- 
+       
         // Send Email Verification and redirect to my website.
         result.user.sendEmailVerification(myURL)
           .then( () => {
