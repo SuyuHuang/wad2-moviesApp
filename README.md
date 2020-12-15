@@ -75,13 +75,13 @@ Name: Suyu Huang
 
 ## Routing.
 
-...... Insert a list of the additional routes supported by your Movies Fan app. If relevant, specify which of the routes require authentication, i.e. protected/private.
 
-+ <Route path="/genres/:name" component={GenrePage}/>
-+ <Route path="/actor" component={ACtorPage}/>
-+ <Route path="/actors/:id" component={ActorDetailPage}/>
-+ <Route path="/login" component={LoginPage}/>
-+ <Route path="/signup" component={SignupPage}/>
+
++ "/genres/:name" component={GenrePage}
++ "/actor" component={ACtorPage}
++ "/actors/:id" component={ActorDetailPage}
++ "/login" component={LoginPage}
++ "/signup" component={SignupPage}
 
 
 
@@ -119,7 +119,7 @@ The elderly project record key:6c17a7a2-611d-434f-90df-2a995e3f1069
 [ActorPage1]: ./public/ActorPage1.png
 [ActorPage2]: ./public/ActorPage2.png
 [dashboard]: ./public/dashboard.png
-
+[HomePage]:  ./public/HomePage.png
 [RateLink]: ./public/RateLink.png
 [LoginLink]: ./public/LoginLink.png
 [SignUp]: ./public/SignUp.png
@@ -127,4 +127,67 @@ The elderly project record key:6c17a7a2-611d-434f-90df-2a995e3f1069
 [LoginJudge]: ./public/LoginJudge.png
 [Logout]: ./public/Logout.png
 [stories]: ./public/storybook.png
+[CodeSplitting]: ./public/CodeSplitting.png
+
+
+---------------------------------
+
+# Assignment 1 - Agile Software Practice.
+
+Name: SuyuHuang
+
+## App Features.
+
+[Document each new feature/page in your Movies Fan app, including: Feature Name; Its objective/purpose; The associated test file; a screenshot of its UI.]
+e,g,
+ 
++ Movie Details page - Shows the details about a movie. The Show reviews button reveals an excerpt for each critic review of the movie. In additon, the function rate was added to post rate to TMDB. In addtion  users can click on the genres of the movie to see similar categories of this movie.
+
+Tests: cypress/integration/movieDetails.spec.js 
+
+![][ActorPage1]
+
++ ActorPage - show a list of the actors, together with their popularity and magmun opus
+
+Tests: cypress/integration/actor-page.spec.js 
+
+![][ActorDetail]
++ ActorDetail - show the detailed information of the actor, together with a brief biography
+  
+Tests: cypress/integration/actor-page.spec.js 
+
+![][HomePage]
++ Home Page - Provides a sorting filter that allows users to sort movies by popularity, rating, number of ratings,etc. Also supports both ASC and DESC frequency.
+
+Tests: cypress/integration/home-page.spec.js 
+
+![][Login]
++ Login Page -  Using firebase to implement the login function, users can click on Login in the top right corner to access the login screen. Two login options are provided - using github and using a verified email and password. Users can also sign up for an account by clicking Signup, which requires email verification to log in. 
+
+Tests: cypress/integration/login-page.spec.js 
+
+![][Logout]
+![][SignUp]
++ Lotout and SignUp Page -  When the user logs in, the Login in the top right corner will change to the nickname the user filled in during registration. Clicking on the nickname will display basic information about the user, such as the email address they are tied to, their username, when they registered and when they last logged in, and whether their email address has been verified. This page also has a logout button which users can click on to log out of your account. Once logged out, you will automatically be taken back to the main page.
+
+Tests: cypress/integration/login-page.spec.js 
+
+![][CodeSplitting]
++ Change all the import page to lazy in src/index
+
+
+## Testing.
+
+Cypress Dashboard URL: https://dashboard.cypress.io/organizations/9b0f6371-389b-4b17-ab98-1a7ca35f8730/projects
+
+the former one which has reached the limit:https://dashboard.cypress.io/organizations/fc2bb52c-9d3b-4628-b0c7-65145be3a77e/projects
+
+### Advanced Testing (If required).
+
+[State briefly each instances of boundary and/or error/exceptional test case in your project]
+e.g.
+
++ cypress/integration/movieReviewPage.spec.js - test the message content when the input in illegal
++ cypress/integration/Login-page.spec.js - test the firebase reaction when the password is wrong & when the input email is empty
+
 

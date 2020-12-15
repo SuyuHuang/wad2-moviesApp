@@ -14,7 +14,7 @@ const judge=((gender)=>{
 
   }
 })
-describe("Movie Details Page", () => {
+describe("Acotr Details Page", () => {
   before(() => {
 
 
