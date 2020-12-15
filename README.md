@@ -105,6 +105,11 @@ src/component/GiveRate
 src/index.js
 src/component/Login
 
+In addtion, the dashboard has reached the limit of 500 tests, so I created a new one.
+![][dashboard]
+The wit in lower case is the new one
+The elderly project record key:6c17a7a2-611d-434f-90df-2a995e3f1069
+
 ---------------------------------
 
 [model]: ./data.jpg
@@ -113,6 +118,7 @@ src/component/Login
 [ActorDetail]: ./public/ActorDetail.png
 [ActorPage1]: ./public/ActorPage1.png
 [ActorPage2]: ./public/ActorPage2.png
+[dashboard]: ./public/dashboard.png
 
 [RateLink]: ./public/RateLink.png
 [LoginLink]: ./public/LoginLink.png
